@@ -37,7 +37,3 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-- task: DockerInstaller@0
-  inputs:
-    dockerVersion: '17.09.0-ce'
-    export CVAT_HOST=dockercvat.azurecr.io
