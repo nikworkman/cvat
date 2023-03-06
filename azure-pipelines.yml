@@ -19,11 +19,6 @@ variables:
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
-name: 
-- task: CmdLine@2
-  inputs:
-    script: 'export CVAT_HOST=dockercvat.azurecr.io'
-
 stages:
 - stage: Build
   displayName: Build and push stage
@@ -32,6 +27,11 @@ stages:
     displayName: Build
     pool:
       vmImage: $(vmImageName)
+      name: 
+- task: CmdLine@2
+  inputs:
+    script: 'export CVAT_HOST=dockercvat.azurecr.io'
+    
     steps:
     - task: Docker@2
       displayName: Build and push an image to container registry
